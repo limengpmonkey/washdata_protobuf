@@ -1,0 +1,14 @@
+syntax = "proto3";
+package autonomous_driving;
+
+// 车辆控制指令
+message ControlCommand {
+  double steering_angle = 8;    // 方向盘转角(度)
+  double throttle = 6;          // 油门开度(0-1)
+  double brake = 4;             // 制动强度(0-1)
+  bool turn_signal_left = 1;    // 左转向灯
+  bool turn_signal_right = 2;   // 右转向灯
+  double target_speed = 3;      // 目标速度(m/s)
+  string command_source = 5;    // 指令来源(算法/人工)
+  double execution_time = 7;    // 预计执行时间(秒)
+}

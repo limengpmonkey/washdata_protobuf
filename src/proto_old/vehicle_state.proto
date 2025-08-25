@@ -1,0 +1,20 @@
+syntax = "proto3";
+package autonomous_driving;
+
+import "sensor_data.proto";  // 导入第二层消息
+import "control_command.proto";  // 导入第三层消息
+
+// 车辆整体状态信息
+message VehicleState {
+  // 基本信息
+  string vehicle_id = 1;  // 车辆唯一标识
+  double timestamp = 2;    // 时间戳(秒)
+  double speed = 3;        // 当前车速(m/s)
+  double acceleration = 4; // 当前加速度(m/s²)
+  
+  // 子系统状态
+  repeated SensorData sensor_data = 5;      // 传感器数据数组
+  ControlCommand latest_command = 6;       // 最新控制指令
+  bool emergency_stop_activated = 7;       // 紧急制动是否激活
+  string current_driving_mode = 8;         // 当前驾驶模式(手动/自动)
+}
