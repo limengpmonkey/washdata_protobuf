@@ -13,8 +13,8 @@ message VehicleState {
   double acceleration = 4; // 当前加速度(m/s²)
   
   // 子系统状态
-  repeated SensorData sensor_data = 6;      // 传感器数据数组
-  ControlCommand latest_command = 10;       // 最新控制指令
-  bool emergency_stop_activated = 9;       // 紧急制动是否激活
+  repeated SensorData sensor_data = 5;      // 传感器数据数组
+  ControlCommand latest_command = 6;       // 最新控制指令
+  bool emergency_stop_activated = 7;       // 紧急制动是否激活
   string current_driving_mode = 8;         // 当前驾驶模式(手动/自动)
 }
