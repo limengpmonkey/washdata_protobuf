@@ -1,0 +1,32 @@
+# prototool.yaml 示例
+protoc:
+  version: 3.5.1 # 指定 protoc 版本[1](@ref)
+
+lint:
+  group: uber2 # 使用 uber2 规则集进行代码风格检查[2,4](@ref)
+  rules:
+    remove: # 移除一些你不想启用的规则
+      - ENUM_FIELD_NAMES_UPPER_SNAKE_CASE
+  ignores: # 忽略特定文件的特定规则
+    - id: SERVICE_NAMES_CAMEL_CASE
+      files:
+        - "legacy_service.proto" # 对这些文件禁用此规则
+  file_header: # 要求所有文件包含此头
+    content: |
+      // Copyright (c) 2025, MyCompany.
+      // All rights reserved.
+    is_commented: true
+
+generate:
+  plugins:
+    - name: cpp # 生成cpp 代码
+      output: ./generated # 输出目录
+
+# 指定要处理的目录（Prototool 也会自动发现）
+dirs:
+  - ./proto
+
+# 排除不需要处理的路径
+exclude_paths:
+  - "proto/legacy"
+  - "**/experimental/**"
