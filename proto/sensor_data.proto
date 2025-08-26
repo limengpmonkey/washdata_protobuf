@@ -1,7 +1,7 @@
 syntax = "proto3";
+import "perception_object.proto";  // 导入第三层消息
 package autonomous_driving;
 
-import "perception_object.proto";  // 导入第三层消息
 
 // 传感器数据集合
 message SensorData {
