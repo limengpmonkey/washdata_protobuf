@@ -3,7 +3,7 @@ package autonomous_driving;
 
 // 感知到的物体信息
 message PerceptionObject {
-  string id = 1;                // 物体唯一标识
+  uint32 id = 1;                // 物体唯一标识
   string classification = 2;    // 分类(车辆/行人/障碍物等)
   double x_position = 3;        // X坐标(米)
   double y_position = 4;        // Y坐标(米)
@@ -14,5 +14,5 @@ message PerceptionObject {
   double length = 9;            // 长度(米)
   double height = 10;           // 高度(米)
   double confidence = 11;       // 识别置信度(0-1)
-  bool is_moving = 12;          // 是否移动中
+  bool is_selected = 13;        //是否被选中
 }
